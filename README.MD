@@ -1,0 +1,1 @@
+Run app by docker-compose up
