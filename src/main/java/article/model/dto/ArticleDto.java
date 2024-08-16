@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Builder
 public class ArticleDto {
     @NotBlank
-    @Length(max = 100)
+    @Length(min = 3, max = 100)
     private String title;
 
     @NotBlank
@@ -23,6 +23,6 @@ public class ArticleDto {
     @NotBlank
     private String content;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime publishDate;
 }

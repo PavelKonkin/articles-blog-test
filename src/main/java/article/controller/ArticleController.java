@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +25,8 @@ public class ArticleController {
         this.articleService = articleService;
     }
 
-    @PostMapping
+    @PostMapping("/create")
+    @ResponseStatus(HttpStatus.CREATED)
     public ArticleDto createArticle(@RequestBody @Valid ArticleDto article) {
         return articleService.createArticle(article);
     }
